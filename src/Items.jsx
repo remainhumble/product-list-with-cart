@@ -1,5 +1,6 @@
 import './App.css'
 import Item from './Item.jsx'
+import PropTypes from 'prop-types'
 
 
 const Items = ({ desserts }) => {
@@ -12,6 +13,10 @@ const Items = ({ desserts }) => {
             </div>
         </>
     )
+}
+
+Items.propTypes = {
+    desserts: PropTypes.array.isRequired,
 }
 
 export default Items;
