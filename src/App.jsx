@@ -8,8 +8,10 @@ function App() {
   return (
     <>
       <h1>Desserts</h1>
-      <Items desserts={desserts} />
-      <YourCart />
+      <div className="app-container">
+        <Items desserts={desserts} />
+        <YourCart />
+      </div>
     </>
   )
 }
