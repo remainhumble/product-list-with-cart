@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-const Item = ({ dessert }) => {
+const Item = ({ dessert, onAddToCart }) => {
+
+    const handleClick = () => {
+        onAddToCart(dessert);
+    };
+
     // Store the current window width in state
     // This allows React to re-render when the width changes
     const [width, setWidth] = useState(window.innerWidth);
@@ -41,7 +46,7 @@ const Item = ({ dessert }) => {
             />
 
             {/* Add to cart button */}
-            <button className="add-to-cart">
+            <button className="add-to-cart" onClick={handleClick}>
                 <img src="assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
                 Add to Cart
             </button>

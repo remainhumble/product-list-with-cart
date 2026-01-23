@@ -47,7 +47,8 @@ img {
   height: 0.85em;
 }
 
-h3 {
+h3,
+h4 {
   font-weight: 600;
   margin: 0.2rem 0;
   font-size: 16px;
@@ -95,12 +96,50 @@ h3 {
   color: hsl(12, 20%, 44%);
 }
 
-#adding img {
-  margin-top: 18px;
-}
-
 #adding p {
   margin-bottom: 1rem;
+}
+
+.cart-items {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.cart-item {
+  border-bottom: 2px solid hsl(13, 31%, 94%);
+}
+
+.cart-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-quantity {
+  font-weight: 600;
+  color: hsl(14, 86%, 42%);
+}
+
+.item-price {
+  font-weight: 400;
+}
+
+.remove {
+  margin-bottom: 1.5rem;
+}
+
+.remove-icon {
+  background: none;
+  border: 1.5px solid hsl(14, 25%, 72%);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px;
 }
 
 @media (min-width: 1000px) {
