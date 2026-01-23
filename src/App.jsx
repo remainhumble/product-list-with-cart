@@ -24,12 +24,17 @@ function App() {
     }
   }
 
+  const removeFromCart = (itemName) => {
+    // Remove the item from the cart by filtering it out
+    setCart(cart.filter(item => item.name !== itemName))
+  }
+
   return (
     <>
       <h1>Desserts</h1>
       <div className="app-container">
         <Items desserts={desserts} onAddToCart={addToCart} />
-        <YourCart cartItems={cart} />
+        <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} />
       </div>
     </>
   )

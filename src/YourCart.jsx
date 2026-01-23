@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './App.css'
 
-const YourCart = ({ cartItems }) => {
+const YourCart = ({ cartItems, onRemoveFromCart }) => {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+
 
     return (
         <>
@@ -27,7 +28,13 @@ const YourCart = ({ cartItems }) => {
                                             <p>${(item.quantity * item.price).toFixed(2)}</p>
                                         </div>
                                         <div className='remove'>
-                                            <img className='remove-icon' src="assets/images/icon-remove-item.svg" alt="remove-item" />
+                                            <img 
+                                                className='remove-icon' 
+                                                src="assets/images/icon-remove-item.svg" 
+                                                alt="remove-item"
+                                                onClick={() => onRemoveFromCart(item.name)}
+                                                style={{ cursor: 'pointer' }}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -42,6 +49,7 @@ const YourCart = ({ cartItems }) => {
 
 YourCart.propTypes = {
     cartItems: PropTypes.array.isRequired,
+    onRemoveFromCart: PropTypes.func.isRequired,
 }
 
 export default YourCart
