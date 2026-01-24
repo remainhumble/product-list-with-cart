@@ -26,9 +26,28 @@ img {
   font-weight: 600;
   padding: 0.5rem 1.425rem;
   transition: background-color 200ms;
-  max-width: fit-content;
   position: relative;
   top: -1.25rem;
+}
+
+.increase-or-decrease {
+  color: hsl(20, 50%, 98%);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.increase-or-decrease:hover {
+  color: hsl(20, 50%, 98%);
+}
+
+.increase-or-decrease img {
+  margin: 0 .85rem;
+}
+
+.minus {
+  height: 0.85em;
+  width: 0.85em;
 }
 
 #dessert-details {
@@ -42,9 +61,10 @@ img {
   border-color: hsl(14, 86%, 42%);
 }
 
-.add-to-cart img {
+.add-to-cart .cart-img {
+  height: 1em;
+  width: 1em;
   margin-right: 0.5rem;
-  height: 0.85em;
 }
 
 h3,
@@ -181,10 +201,15 @@ h4 {
   color: white;
   cursor: pointer;
   font-weight: 400;
-  padding: 0.5rem 1.425rem;
+  padding: 0.75rem 1.425rem;
   transition: background-color 200ms;
   width: 100%;
   margin-top: 1rem;
+  font-size: 14px;
+}
+
+.confirm-order:hover {
+  background-color: hsl(14, 84%, 29%);
 }
 
 @media (min-width: 1000px) {

@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const Item = ({ dessert, onAddToCart }) => {
 
+    // State to track if item is added to cart
+    const [isAdded, setIsAdded] = useState(false);
+    const buttonRef = useRef(null);
+
     const handleClick = () => {
         onAddToCart(dessert);
+        if (buttonRef.current) {
+            buttonRef.current.style.backgroundColor = 'hsl(14, 86%, 42%)';
+            setIsAdded(true);
+        }
     };
 
     // Store the current window width in state
@@ -46,9 +54,15 @@ const Item = ({ dessert, onAddToCart }) => {
             />
 
             {/* Add to cart button */}
-            <button className="add-to-cart" onClick={handleClick}>
-                <img src="assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
-                Add to Cart
+            <button className="add-to-cart" onClick={handleClick} ref={buttonRef}>
+                {/* Needed to use a state flag to conditionally render the image and button text. Could not  directly store JSX with <img> in useState */}
+                {!isAdded && (
+                    <>
+                        <img className='cart-img' src="assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
+                        Add to Cart
+                    </>
+                )}
+                {isAdded && <div className='increase-or-decrease'><img src="assets/images/icon-increment-quantity.svg" alt="" /> 0 <img className='minus' src="assets/images/icon-decrement-quantity.svg" alt="" /></div>}
             </button>
 
             {/* Dessert information */}
