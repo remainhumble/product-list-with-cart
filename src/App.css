@@ -143,15 +143,48 @@ h4 {
 }
 
 .order-total {
+  display: block;
+}
+
+.total-amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem 0;
 }
 
 .total {
   font-weight: 600;
   color: hsl(14, 65%, 9%);
   font-size: 24px;
+}
+
+.carbon-neutral {
+  display: block;
+  text-align: center;
+  background-color: hsl(13, 31%, 94%);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.carbon-neutral b {
+  font-weight: 600;
+  color: hsl(14, 65%, 9%);
+}
+
+.confirm-order {
+  background-color: hsl(14, 86%, 42%);
+  border: none;
+  border-radius: 45px;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 0.5rem 1.425rem;
+  transition: background-color 200ms;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 @media (min-width: 1000px) {
@@ -176,5 +209,9 @@ h4 {
     width: 350px;
     height: fit-content;
     margin-top: 0;
+  }
+
+  .carbon-neutral {
+    font-size: 16px;
   }
 }

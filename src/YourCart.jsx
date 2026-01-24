@@ -59,14 +59,20 @@ const YourCart = ({ cartItems, onRemoveFromCart }) => {
                     {// Checks if there are any items in the cart
                         cartItems.length > 0 && (
                             <>
-                                <span>Order Total:</span>
-                                <span className="total">
-                                    ${cartItems
-                                        .reduce((total, item) => total + item.quantity * item.price, 0)
-                                        .toFixed(2)}
-                                </span>
+                                <div className="total-amount">
+                                    <span>Order Total:</span>
+                                    <span className="total">
+                                        ${cartItems
+                                            .reduce((total, item) => total + item.quantity * item.price, 0)
+                                            .toFixed(2)}
+                                    </span></div>
+                                <div className="carbon-neutral">
+                                    <p><img src="assets/images/icon-carbon-neutral.svg" alt="carbon-neutral" /> This is a <b>carbon-neutral</b> delivery</p>
+                                </div>
+                                <button className='confirm-order'>Confirm Order</button>
                             </>
                         )}
+
                 </div>
             </div>
         </>
