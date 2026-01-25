@@ -92,7 +92,7 @@ const Item = ({ dessert, onAddToCart, cartItems, onUpdateQuantity }) => {
                         Add to Cart
                     </>
                 )}
-                {isAdded && <div className='increase-or-decrease'><img src="assets/images/icon-increment-quantity.svg" alt="" onClick={handleIncrease} /> {currentQuantity} <img className='minus' src="assets/images/icon-decrement-quantity.svg" alt="" onClick={handleDecrease} /></div>}
+                {isAdded && <div className='increase-or-decrease'><div type="button" aria-label="Increase quantity" id='increment'><img aria-hidden="true" src="assets/images/icon-increment-quantity.svg" alt="" onClick={handleIncrease} /></div> {currentQuantity} <div id="decrement" type="button" aria-label="Decrease quantity"><img aria-hidden="true" className='minus' src="assets/images/icon-decrement-quantity.svg" alt="" onClick={handleDecrease} /></div></div>}
             </button>
 
             {/* Dessert information */}
