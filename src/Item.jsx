@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-const Item = ({ dessert, onAddToCart }) => {
+const Item = ({ dessert, onAddToCart, cartItems }) => {
 
     // State to track if item is added to cart
     const [isAdded, setIsAdded] = useState(false);
@@ -14,6 +14,17 @@ const Item = ({ dessert, onAddToCart }) => {
             setIsAdded(true);
         }
     };
+
+    // Check if item is in cart, and reset button if removed
+    useEffect(() => {
+        const itemInCart = cartItems.find(item => item.name === dessert.name);
+        if (!itemInCart && isAdded) {
+            setIsAdded(false);
+            if (buttonRef.current) {
+                buttonRef.current.style.backgroundColor = 'hsl(20, 50%, 98%)';
+            }
+        }
+    }, [cartItems, dessert.name, isAdded]);
 
     // Store the current window width in state
     // This allows React to re-render when the width changes

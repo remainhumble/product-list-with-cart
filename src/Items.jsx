@@ -3,12 +3,12 @@ import Item from './Item.jsx'
 import PropTypes from 'prop-types'
 
 
-const Items = ({ desserts, onAddToCart }) => {
+const Items = ({ desserts, onAddToCart, cartItems }) => {
     return (
         <>
             <div className="grid">
                 {desserts.map((dessert, index) => (
-                    <Item key={index} dessert={dessert} onAddToCart={onAddToCart} />
+                    <Item key={index} dessert={dessert} onAddToCart={onAddToCart} cartItems={cartItems} />
                 ))}
             </div>
         </>
@@ -18,6 +18,7 @@ const Items = ({ desserts, onAddToCart }) => {
 Items.propTypes = {
     desserts: PropTypes.array.isRequired,
     onAddToCart: PropTypes.func.isRequired,
+    cartItems: PropTypes.array.isRequired,
 }
 
 export default Items;

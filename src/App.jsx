@@ -33,7 +33,7 @@ function App() {
     <>
       <h1>Desserts</h1>
       <div className="app-container">
-        <Items desserts={desserts} onAddToCart={addToCart} />
+        <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} />
         <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} />
       </div>
     </>
