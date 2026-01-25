@@ -42,7 +42,7 @@ img {
 }
 
 .increase-or-decrease img {
-  margin: 0 .85rem;
+  margin: 0 0.85rem;
 }
 
 .minus {
@@ -160,6 +160,12 @@ h4 {
   cursor: pointer;
   font-size: 14px;
   padding: 2px;
+}
+
+.remove-icon:hover {
+  border-color: hsl(14, 65%, 9%);
+  filter: brightness(0) saturate(100%) invert(7%) sepia(10%) saturate(3833%)
+    hue-rotate(330deg) brightness(101%) contrast(100%);
 }
 
 .order-total {

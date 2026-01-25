@@ -17,7 +17,6 @@ import './App.css'
 const YourCart = ({ cartItems, onRemoveFromCart }) => {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
-
     return (
         <>
             <div id="your-cart">

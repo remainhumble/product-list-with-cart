@@ -29,11 +29,24 @@ function App() {
     setCart(cart.filter(item => item.name !== itemName))
   }
 
+  const updateQuantity = (itemName, newQuantity) => {
+    // Update the quantity of an item in the cart
+    if (newQuantity <= 0) {
+      removeFromCart(itemName)
+    } else {
+      setCart(cart.map(item =>
+        item.name === itemName
+          ? { ...item, quantity: newQuantity }
+          : item
+      ))
+    }
+  }
+
   return (
     <>
       <h1>Desserts</h1>
       <div className="app-container">
-        <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} />
+        <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} onUpdateQuantity={updateQuantity} />
         <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} />
       </div>
     </>

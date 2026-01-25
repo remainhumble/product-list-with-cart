@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-const Item = ({ dessert, onAddToCart, cartItems }) => {
+const Item = ({ dessert, onAddToCart, cartItems, onUpdateQuantity }) => {
 
     // State to track if item is added to cart
     const [isAdded, setIsAdded] = useState(false);
+
     const buttonRef = useRef(null);
 
     const handleClick = () => {
-        onAddToCart(dessert);
-        if (buttonRef.current) {
-            buttonRef.current.style.backgroundColor = 'hsl(14, 86%, 42%)';
-            setIsAdded(true);
+        if (!isAdded) {
+            onAddToCart(dessert);
+            if (buttonRef.current) {
+                buttonRef.current.style.backgroundColor = 'hsl(14, 86%, 42%)';
+                setIsAdded(true);
+            }
         }
     };
 
@@ -25,6 +28,22 @@ const Item = ({ dessert, onAddToCart, cartItems }) => {
             }
         }
     }, [cartItems, dessert.name, isAdded]);
+
+    // Get the current quantity from cartItems
+    const itemInCart = cartItems.find(item => item.name === dessert.name);
+    const currentQuantity = itemInCart ? itemInCart.quantity : 0;
+
+    // Increase count
+    const handleIncrease = (e) => {
+        e.stopPropagation();
+        onUpdateQuantity(dessert.name, currentQuantity + 1);
+    };
+
+    // Decrease count (with lower limit at 0)
+    const handleDecrease = (e) => {
+        e.stopPropagation();
+        onUpdateQuantity(dessert.name, currentQuantity - 1);
+    };
 
     // Store the current window width in state
     // This allows React to re-render when the width changes
@@ -73,7 +92,7 @@ const Item = ({ dessert, onAddToCart, cartItems }) => {
                         Add to Cart
                     </>
                 )}
-                {isAdded && <div className='increase-or-decrease'><img src="assets/images/icon-increment-quantity.svg" alt="" /> 0 <img className='minus' src="assets/images/icon-decrement-quantity.svg" alt="" /></div>}
+                {isAdded && <div className='increase-or-decrease'><img src="assets/images/icon-increment-quantity.svg" alt="" onClick={handleIncrease} /> {currentQuantity} <img className='minus' src="assets/images/icon-decrement-quantity.svg" alt="" onClick={handleDecrease} /></div>}
             </button>
 
             {/* Dessert information */}
