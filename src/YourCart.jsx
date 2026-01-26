@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from 'prop-types'
 import './App.css'
-import Lightbox from './Lightbox'
 
 /**
  * YourCart component displays the items in the user's shopping cart.
@@ -16,15 +15,15 @@ import Lightbox from './Lightbox'
  * The total number of items in the cart is calculated by summing the quantity of each item in the cart.
  * The order total is calculated by multiplying the price of each item by its quantity and summing these values for all items in the cart.
  */
-const YourCart = ({ cartItems, onRemoveFromCart }) => {
+const YourCart = ({ cartItems, onRemoveFromCart, onConfirmOrder }) => {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
-    const [componentVisible, setComponentVisible] = useState(false);
 
     const handleConfirmOrder = () => {
         // Logic to handle order confirmation can be added here
         console.log("Order confirmed!");
-        setComponentVisible(true);
-
+        if (onConfirmOrder) {
+            onConfirmOrder();
+        }
     }
 
     return (
@@ -78,8 +77,7 @@ const YourCart = ({ cartItems, onRemoveFromCart }) => {
                                     <p><img src="assets/images/icon-carbon-neutral.svg" alt="carbon-neutral" /> This is a <b>carbon-neutral</b> delivery</p>
                                 </div>
                                 <button className='confirm-order' onClick={() => handleConfirmOrder()}>Confirm Order</button>
-                                <div className={`overlay ${componentVisible ? 'visible' : ''}`}></div>
-                                {componentVisible && (<Lightbox isVisible={componentVisible} />)}
+                                <div className={`overlay`}></div>
                             </>
                         )}
                 </div>
@@ -91,6 +89,7 @@ const YourCart = ({ cartItems, onRemoveFromCart }) => {
 YourCart.propTypes = {
     cartItems: PropTypes.array.isRequired,
     onRemoveFromCart: PropTypes.func.isRequired,
+    onConfirmOrder: PropTypes.func.isRequired,
 }
 
 export default YourCart

@@ -7,6 +7,7 @@ import Lightbox from './Lightbox.jsx'
 
 function App() {
   const [cart, setCart] = useState([])
+  const [showLightbox, setShowLightbox] = useState(false)
 
   const addToCart = (dessert) => {
     // Check if the dessert item already exists in the cart by name
@@ -43,14 +44,23 @@ function App() {
     }
   }
 
+  const handleStartNewOrder = () => {
+    // Reset cart and close lightbox
+    setCart([])
+    setShowLightbox(false)
+  }
+
+  const handleShowLightbox = () => {
+    setShowLightbox(true)
+  }
+
   return (
     <>
       <h1>Desserts</h1>
-      <div className="overlay"></div>
       <div className="app-container">
         <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} onUpdateQuantity={updateQuantity} />
-        <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} />
-        <Lightbox />
+        <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} onConfirmOrder={handleShowLightbox} />
+        <Lightbox isVisible={showLightbox} onStartNewOrder={handleStartNewOrder} />
       </div>
     </>
   )
