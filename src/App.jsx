@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Items from './Items.jsx'
 import desserts from '../data.json'
 import YourCart from './YourCart.jsx'
+import Lightbox from './Lightbox.jsx'
 
 function App() {
   const [cart, setCart] = useState([])
@@ -45,9 +46,11 @@ function App() {
   return (
     <>
       <h1>Desserts</h1>
+      <div className="overlay"></div>
       <div className="app-container">
         <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} onUpdateQuantity={updateQuantity} />
         <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} />
+        <Lightbox />
       </div>
     </>
   )

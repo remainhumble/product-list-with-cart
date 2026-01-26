@@ -67,7 +67,8 @@ img {
   margin-right: 0.5rem;
 }
 
-#increment, #decrement {
+#increment,
+#decrement {
   cursor: pointer;
   background: none;
   border: none;
@@ -223,6 +224,32 @@ h4 {
 
 .confirm-order:hover {
   background-color: hsl(14, 84%, 29%);
+}
+
+/* Lightbox overlay */
+.overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(0); /* Creates a new stacking context */
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  background: white;
 }
 
 @media (min-width: 1000px) {
