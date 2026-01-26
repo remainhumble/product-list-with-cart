@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import PropTypes from 'prop-types'
 import './App.css'
+import Lightbox from './Lightbox'
 
 /**
  * YourCart component displays the items in the user's shopping cart.
@@ -16,6 +18,14 @@ import './App.css'
  */
 const YourCart = ({ cartItems, onRemoveFromCart }) => {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    const [componentVisible, setComponentVisible] = useState(false);
+
+    const handleConfirmOrder = () => {
+        // Logic to handle order confirmation can be added here
+        console.log("Order confirmed!");
+        setComponentVisible(true);
+
+    }
 
     return (
         <>
@@ -67,10 +77,11 @@ const YourCart = ({ cartItems, onRemoveFromCart }) => {
                                 <div className="carbon-neutral">
                                     <p><img src="assets/images/icon-carbon-neutral.svg" alt="carbon-neutral" /> This is a <b>carbon-neutral</b> delivery</p>
                                 </div>
-                                <button className='confirm-order'>Confirm Order</button>
+                                <button className='confirm-order' onClick={() => handleConfirmOrder()}>Confirm Order</button>
+                                <div className={`overlay ${componentVisible ? 'visible' : ''}`}></div>
+                                {componentVisible && (<Lightbox isVisible={componentVisible} />)}
                             </>
                         )}
-
                 </div>
             </div>
         </>

@@ -238,6 +238,11 @@ h4 {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.overlay.visible {
+  display: flex;
 }
 
 .lightbox {
@@ -250,6 +255,11 @@ h4 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 50px;
   background: white;
+  z-index: 1000;
+}
+
+.lightbox.visible {
+  display: block;
 }
 
 @media (min-width: 1000px) {
