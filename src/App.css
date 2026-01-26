@@ -137,16 +137,42 @@ h4 {
   border-bottom: 2px solid hsl(13, 31%, 94%);
 }
 
-.cart-item-info {
+.cart-item h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: hsl(14, 65%, 9%);
+}
+
+.cart-item-info, .lightbox-item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.lightbox-items-summary {
+  background-color: hsl(13, 31%, 94%);
+}
+
 .cart-item-details {
+  width: 100%;
+}
+
+.cart-item-details,
+.item-quantity-price {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.lightbox-item-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lightbox-item-details .quantity-price {
+  font-size: 14px;
 }
 
 .item-quantity {
@@ -208,6 +234,11 @@ h4 {
   color: hsl(14, 65%, 9%);
 }
 
+.quantity-price {
+  font-weight: 600;
+  color: hsl(14, 65%, 9%);
+}
+
 .confirm-order {
   background-color: hsl(14, 86%, 42%);
   border: none;
@@ -247,18 +278,34 @@ h4 {
 .lightbox {
   display: none; /* Hidden by default */
   position: fixed;
+  width: 100%;
   bottom: 0;
   left: 0;
   transform: translateZ(0); /* Creates a new stacking context */
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  padding: 50px;
+  padding: 25px;
   background: white;
   z-index: 1000;
+  height: fit-content;
+}
+
+.lightbox h2 {
+  color: hsl(14, 65%, 9%);
+}
+
+.lightbox p {
+  font-size: 12px;
 }
 
 .lightbox.visible {
   display: block;
+}
+
+.confirmed-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 1000px) {
@@ -293,5 +340,6 @@ h4 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: fit-content;
   }
 }

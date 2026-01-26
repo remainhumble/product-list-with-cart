@@ -60,7 +60,7 @@ function App() {
       <div className="app-container">
         <Items desserts={desserts} onAddToCart={addToCart} cartItems={cart} onUpdateQuantity={updateQuantity} />
         <YourCart cartItems={cart} onRemoveFromCart={removeFromCart} onConfirmOrder={handleShowLightbox} />
-        <Lightbox isVisible={showLightbox} onStartNewOrder={handleStartNewOrder} />
+        <Lightbox isVisible={showLightbox} onStartNewOrder={handleStartNewOrder} lightboxItems={cart} />
       </div>
     </>
   )
