@@ -2,6 +2,7 @@ import React from "react";
 import './App.css'
 import PropTypes from 'prop-types'
 
+
 const Lightbox = ({ isVisible, onStartNewOrder, lightboxItems }) => {
     const totalItems = lightboxItems ? lightboxItems.reduce((sum, item) => sum + item.quantity, 0) : 0;
 
@@ -26,20 +27,35 @@ const Lightbox = ({ isVisible, onStartNewOrder, lightboxItems }) => {
                         <div className="lightbox-items-summary">
                             <div className="items-list">
                                 {lightboxItems.map((item) => (
-                                    <div key={item.name} className="cart-item">
-                                        <h5>{item.name}</h5>
+                                    <div key={item.name} className="lightbox-item">
+                                        <div className="item-image">
+                                            <img src={item.image.thumbnail} alt={item.name} />
+                                        </div>
                                         <div className="lightbox-item-info">
+                                            <div className="lightbox-item-name">
+                                                <h5>{item.name}</h5>
+                                            </div>
+
                                             <div className="lightbox-item-details">
+
                                                 <div className="item-quantity-price">
                                                     <p className='item-quantity'>{item.quantity}x</p>
                                                     <p className="item-price">@ ${item.price.toFixed(2)}</p>
                                                 </div>
-                                                <div className="quantity-price">${(item.quantity * item.price).toFixed(2)}</div>
+
                                             </div>
                                         </div>
+                                        <div className="quantity-price">${(item.quantity * item.price).toFixed(2)}</div>
+
                                     </div>
                                 ))}
-
+                                <div className="total-amount">
+                                    <span>Order Total:</span>
+                                    <span className="total">
+                                        ${lightboxItems
+                                            .reduce((total, item) => total + item.quantity * item.price, 0)
+                                            .toFixed(2)}
+                                    </span></div>
                             </div>
                         </div>
                     )}

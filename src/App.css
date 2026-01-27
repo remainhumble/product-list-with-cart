@@ -137,20 +137,22 @@ h4 {
   border-bottom: 2px solid hsl(13, 31%, 94%);
 }
 
-.cart-item h5 {
-  margin-bottom: 0.5rem;
+.lightbox-item .lightbox-item-name h5 {
+  margin: 0.25rem 0;
   font-weight: 600;
   color: hsl(14, 65%, 9%);
 }
 
-.cart-item-info, .lightbox-item-info {
+.cart-item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.lightbox-items-summary {
-  background-color: hsl(13, 31%, 94%);
+.items-list {
+  background-color: hsl(20, 50%, 98%);
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .cart-item-details {
@@ -162,6 +164,21 @@ h4 {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.item-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.lightbox-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+padding: 1rem 0;
+  width: 100%;
+  border-bottom: 1px solid hsl(13, 31%, 94%);
 }
 
 .lightbox-item-details {
@@ -214,7 +231,7 @@ h4 {
 }
 
 .total {
-  font-weight: 600;
+  font-weight: 700;
   color: hsl(14, 65%, 9%);
   font-size: 24px;
 }
@@ -237,6 +254,7 @@ h4 {
 .quantity-price {
   font-weight: 600;
   color: hsl(14, 65%, 9%);
+  margin-left: auto;
 }
 
 .confirm-order {
@@ -341,5 +359,7 @@ h4 {
     top: 50%;
     transform: translate(-50%, -50%);
     width: fit-content;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
