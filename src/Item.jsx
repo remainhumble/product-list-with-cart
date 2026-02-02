@@ -88,7 +88,7 @@ const Item = ({ dessert, onAddToCart, cartItems, onUpdateQuantity }) => {
                 {/* Needed to use a state flag to conditionally render the image and button text. Could not  directly store JSX with <img> in useState */}
                 {!isAdded && (
                     <>
-                        <img className='cart-img' src="assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
+                        <img className='cart-img' src="/assets/images/icon-add-to-cart.svg" alt="add-to-cart" />
                         Add to Cart
                     </>
                 )}

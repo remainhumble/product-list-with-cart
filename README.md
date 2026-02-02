@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [solution](https://github.com/remainhumble/product-list-with-cart)
-- Live Site URL: [live site](https://remainhumble.github.io/product-list-with-cart/)
+- Live Site URL: [live site](https://remainhumble.github.io/product-list-with-cart)
 
 
 
